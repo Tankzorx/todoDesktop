@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace TodoApp
 {
-    public partial class Form1 : Form
+    public partial class todoZorx : Form
     {
-        public Form1()
+        public todoZorx()
         {
             InitializeComponent();
         }
@@ -35,6 +35,17 @@ namespace TodoApp
         private void files_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void priorityBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void todoZorx_Load(object sender, EventArgs e)
+        {
+            priorityBox.SelectedIndex = 0;
+            priorityBox.DropDownStyle = ComboBoxStyle.DropDownList;
         }
     }
 }
