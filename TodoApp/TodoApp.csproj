@@ -44,6 +44,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PlaceholderTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TodoItem.cs" />
+    <Compile Include="TodoItemList.cs" />
     <Compile Include="todoZorx.cs">
       <SubType>Form</SubType>
     </Compile>

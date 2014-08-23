@@ -16,7 +16,7 @@ namespace TodoApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new todoZorx());
+            Application.Run(new form1());
 
 
         }

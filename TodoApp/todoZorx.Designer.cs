@@ -1,6 +1,6 @@
 ﻿namespace TodoApp
 {
-    partial class todoZorx
+    partial class form1
     {
         /// <summary>
         /// Required designer variable.
@@ -32,20 +32,20 @@
             this.todoList = new System.Windows.Forms.ListBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.files = new System.Windows.Forms.ToolStripMenuItem();
-            this.todoTitlePicker = new System.Windows.Forms.TextBox();
-            this.goalDatePicker = new System.Windows.Forms.DateTimePicker();
-            this.todoTitlePickerText = new System.Windows.Forms.TextBox();
+            this.todoDatePicker = new System.Windows.Forms.DateTimePicker();
             this.goalDatePickerText = new System.Windows.Forms.TextBox();
-            this.todoDescriptionText = new System.Windows.Forms.TextBox();
-            this.priorityBox = new System.Windows.Forms.ComboBox();
+            this.todoDescriptionPicker = new System.Windows.Forms.TextBox();
+            this.todoPriorityPicker = new System.Windows.Forms.ComboBox();
+            this.todoTitlePicker = new System.Windows.Forms.TextBox();
+            this.testBox = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // addTodoButton
             // 
-            this.addTodoButton.Location = new System.Drawing.Point(12, 541);
+            this.addTodoButton.Location = new System.Drawing.Point(12, 506);
             this.addTodoButton.Name = "addTodoButton";
-            this.addTodoButton.Size = new System.Drawing.Size(379, 23);
+            this.addTodoButton.Size = new System.Drawing.Size(379, 58);
             this.addTodoButton.TabIndex = 0;
             this.addTodoButton.Text = "Add todo!";
             this.addTodoButton.UseVisualStyleBackColor = true;
@@ -77,81 +77,88 @@
             this.files.Text = "Files";
             this.files.Click += new System.EventHandler(this.files_Click);
             // 
-            // todoTitlePicker
+            // todoDatePicker
             // 
-            this.todoTitlePicker.Location = new System.Drawing.Point(12, 362);
-            this.todoTitlePicker.Name = "todoTitlePicker";
-            this.todoTitlePicker.Size = new System.Drawing.Size(379, 20);
-            this.todoTitlePicker.TabIndex = 3;
-            this.todoTitlePicker.TextChanged += new System.EventHandler(this.todoTitle_TextChanged);
-            // 
-            // goalDatePicker
-            // 
-            this.goalDatePicker.Location = new System.Drawing.Point(12, 416);
-            this.goalDatePicker.Name = "goalDatePicker";
-            this.goalDatePicker.Size = new System.Drawing.Size(379, 20);
-            this.goalDatePicker.TabIndex = 4;
-            // 
-            // todoTitlePickerText
-            // 
-            this.todoTitlePickerText.BackColor = System.Drawing.SystemColors.Control;
-            this.todoTitlePickerText.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.todoTitlePickerText.Location = new System.Drawing.Point(291, 365);
-            this.todoTitlePickerText.Name = "todoTitlePickerText";
-            this.todoTitlePickerText.Size = new System.Drawing.Size(100, 13);
-            this.todoTitlePickerText.TabIndex = 5;
-            this.todoTitlePickerText.Text = "<- Insert todo title";
+            this.todoDatePicker.Location = new System.Drawing.Point(218, 388);
+            this.todoDatePicker.Name = "todoDatePicker";
+            this.todoDatePicker.Size = new System.Drawing.Size(135, 20);
+            this.todoDatePicker.TabIndex = 4;
             // 
             // goalDatePickerText
             // 
             this.goalDatePickerText.BackColor = System.Drawing.SystemColors.Control;
             this.goalDatePickerText.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.goalDatePickerText.Cursor = System.Windows.Forms.Cursors.AppStarting;
-            this.goalDatePickerText.Location = new System.Drawing.Point(12, 389);
+            this.goalDatePickerText.Location = new System.Drawing.Point(12, 388);
             this.goalDatePickerText.Name = "goalDatePickerText";
-            this.goalDatePickerText.Size = new System.Drawing.Size(379, 13);
+            this.goalDatePickerText.Size = new System.Drawing.Size(200, 13);
             this.goalDatePickerText.TabIndex = 6;
             this.goalDatePickerText.Text = "When are you hoping to have this done?";
             // 
-            // todoDescriptionText
+            // todoDescriptionPicker
             // 
-            this.todoDescriptionText.Location = new System.Drawing.Point(153, 442);
-            this.todoDescriptionText.Multiline = true;
-            this.todoDescriptionText.Name = "todoDescriptionText";
-            this.todoDescriptionText.Size = new System.Drawing.Size(238, 93);
-            this.todoDescriptionText.TabIndex = 7;
+            this.todoDescriptionPicker.Location = new System.Drawing.Point(153, 407);
+            this.todoDescriptionPicker.Multiline = true;
+            this.todoDescriptionPicker.Name = "todoDescriptionPicker";
+            this.todoDescriptionPicker.Size = new System.Drawing.Size(238, 93);
+            this.todoDescriptionPicker.TabIndex = 7;
+            this.todoDescriptionPicker.Enter += new System.EventHandler(this.todoDescriptionPicker_Enter);
+            this.todoDescriptionPicker.Leave += new System.EventHandler(this.todoDescriptionPicker_Leave);
             // 
-            // priorityBox
+            // todoPriorityPicker
             // 
-            this.priorityBox.Items.AddRange(new object[] {
+            this.todoPriorityPicker.Items.AddRange(new object[] {
             "Priority",
             "High",
             "Low",
             "Medium"});
-            this.priorityBox.Location = new System.Drawing.Point(12, 442);
-            this.priorityBox.Name = "priorityBox";
-            this.priorityBox.Size = new System.Drawing.Size(135, 21);
-            this.priorityBox.TabIndex = 8;
-            this.priorityBox.SelectedIndexChanged += new System.EventHandler(this.priorityBox_SelectedIndexChanged);
+            this.todoPriorityPicker.Location = new System.Drawing.Point(12, 407);
+            this.todoPriorityPicker.Name = "todoPriorityPicker";
+            this.todoPriorityPicker.Size = new System.Drawing.Size(135, 21);
+            this.todoPriorityPicker.TabIndex = 8;
+            this.todoPriorityPicker.SelectedIndexChanged += new System.EventHandler(this.priorityBox_SelectedIndexChanged);
             // 
-            // todoZorx
+            // todoTitlePicker
+            // 
+            this.todoTitlePicker.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.todoTitlePicker.Location = new System.Drawing.Point(12, 362);
+            this.todoTitlePicker.Name = "todoTitlePicker";
+            this.todoTitlePicker.Size = new System.Drawing.Size(379, 20);
+            this.todoTitlePicker.TabIndex = 3;
+            this.todoTitlePicker.TextChanged += new System.EventHandler(this.todoTitle_TextChanged);
+            this.todoTitlePicker.Enter += new System.EventHandler(this.todoTitlePicker_Enter);
+            this.todoTitlePicker.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.todoTitlePicker_KeyPress);
+            this.todoTitlePicker.Leave += new System.EventHandler(this.todoTitlePicker_Leave);
+            // 
+            // testBox
+            // 
+            this.testBox.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.testBox.Location = new System.Drawing.Point(12, 434);
+            this.testBox.Name = "testBox";
+            this.testBox.Size = new System.Drawing.Size(121, 20);
+            this.testBox.TabIndex = 9;
+            // 
+            // form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(403, 576);
-            this.Controls.Add(this.priorityBox);
-            this.Controls.Add(this.todoDescriptionText);
+            this.Controls.Add(this.testBox);
+            this.Controls.Add(this.todoPriorityPicker);
+            this.Controls.Add(this.todoDescriptionPicker);
             this.Controls.Add(this.goalDatePickerText);
-            this.Controls.Add(this.todoTitlePickerText);
-            this.Controls.Add(this.goalDatePicker);
+            this.Controls.Add(this.todoDatePicker);
             this.Controls.Add(this.todoTitlePicker);
             this.Controls.Add(this.todoList);
             this.Controls.Add(this.addTodoButton);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "todoZorx";
+            this.Name = "form1";
             this.Text = "TodoZorx";
             this.Load += new System.EventHandler(this.todoZorx_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -165,13 +172,12 @@
         private System.Windows.Forms.ListBox todoList;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem files;
-        private System.Windows.Forms.TextBox todoTitlePicker;
-        private System.Windows.Forms.DateTimePicker goalDatePicker;
-        private System.Windows.Forms.TextBox todoTitlePickerText;
+        private System.Windows.Forms.DateTimePicker todoDatePicker;
         private System.Windows.Forms.TextBox goalDatePickerText;
-        private System.Windows.Forms.TextBox todoDescriptionText;
-        private System.Windows.Forms.ComboBox priorityBox;
-
+        private System.Windows.Forms.TextBox todoDescriptionPicker;
+        private System.Windows.Forms.ComboBox todoPriorityPicker;
+        private System.Windows.Forms.TextBox todoTitlePicker;
+        private System.Windows.Forms.TextBox testBox;
         
     }
 }
