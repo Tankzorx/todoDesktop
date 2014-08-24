@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.addTodoButton = new System.Windows.Forms.Button();
             this.todoList = new System.Windows.Forms.ListBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -38,7 +39,10 @@
             this.todoPriorityPicker = new System.Windows.Forms.ComboBox();
             this.todoTitlePicker = new System.Windows.Forms.TextBox();
             this.testBox = new System.Windows.Forms.TextBox();
+            this.testBox2 = new System.Windows.Forms.TextBox();
+            this.todoItemListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.todoItemListBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // addTodoButton
@@ -58,7 +62,7 @@
             this.todoList.Name = "todoList";
             this.todoList.Size = new System.Drawing.Size(379, 329);
             this.todoList.TabIndex = 1;
-            this.todoList.SelectedIndexChanged += new System.EventHandler(this.todoList_SelectedIndexChanged);
+            this.todoList.SelectedIndexChanged += new System.EventHandler(this.todoList_SelectedIndexChanged_1);
             // 
             // menuStrip1
             // 
@@ -66,7 +70,7 @@
             this.files});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(403, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(764, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -133,34 +137,47 @@
             // testBox
             // 
             this.testBox.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.testBox.Location = new System.Drawing.Point(12, 434);
+            this.testBox.Location = new System.Drawing.Point(397, 27);
+            this.testBox.Multiline = true;
             this.testBox.Name = "testBox";
-            this.testBox.Size = new System.Drawing.Size(121, 20);
+            this.testBox.Size = new System.Drawing.Size(242, 142);
             this.testBox.TabIndex = 9;
+            // 
+            // testBox2
+            // 
+            this.testBox2.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.testBox2.Location = new System.Drawing.Point(397, 175);
+            this.testBox2.Multiline = true;
+            this.testBox2.Name = "testBox2";
+            this.testBox2.Size = new System.Drawing.Size(242, 142);
+            this.testBox2.TabIndex = 10;
             // 
             // form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(403, 576);
+            this.ClientSize = new System.Drawing.Size(764, 576);
+            this.Controls.Add(this.todoList);
+            this.Controls.Add(this.testBox2);
             this.Controls.Add(this.testBox);
             this.Controls.Add(this.todoPriorityPicker);
             this.Controls.Add(this.todoDescriptionPicker);
             this.Controls.Add(this.goalDatePickerText);
             this.Controls.Add(this.todoDatePicker);
             this.Controls.Add(this.todoTitlePicker);
-            this.Controls.Add(this.todoList);
             this.Controls.Add(this.addTodoButton);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "form1";
             this.Text = "TodoZorx";
             this.Load += new System.EventHandler(this.todoZorx_Load);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.todoItemListBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -178,6 +195,8 @@
         private System.Windows.Forms.ComboBox todoPriorityPicker;
         private System.Windows.Forms.TextBox todoTitlePicker;
         private System.Windows.Forms.TextBox testBox;
+        private System.Windows.Forms.BindingSource todoItemListBindingSource;
+        private System.Windows.Forms.TextBox testBox2;
         
     }
 }

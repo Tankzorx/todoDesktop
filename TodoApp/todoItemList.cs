@@ -4,20 +4,38 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+
 namespace TodoApp
 {
     public class TodoItemList
     {
-        List<TodoItem> todoItemList { get; set; }
+        public static List<TodoItem> todoItemList = new List<TodoItem>();
 
-        void addItem(TodoItem item)
+        List<TodoItem> getTodoItemList()
+        {
+            return todoItemList;
+        }
+
+        public static void addItem(TodoItem item)
         {
             todoItemList.Add(item);
         }
 
-        string toString()
+        public static string toString()
         {
-            return todoItemList.ToString();
+            string list = "";
+            foreach (TodoItem item in todoItemList)
+            {
+                list = list + item.toString() + "::::";
+
+            }
+            return list;
+        }
+
+        public static void removeItem(TodoItem item)
+        {
+            todoItemList.Remove(item);
         }
         
 

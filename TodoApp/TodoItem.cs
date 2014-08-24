@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TodoApp
 {
-    class TodoItem
+    public class TodoItem
     {
         //public TodoItem();
 
@@ -14,6 +14,10 @@ namespace TodoApp
         public DateTime deadline { get; set; }
         public string priority { get; set; }
         public string description { get; set; }
-        
+
+        public string toString()
+        {
+            return "Title: " + title + ", deadline: " + deadline.ToShortDateString() + ", priority: " + priority.ToString() + ", description: " + description;
+        }
     }
 }

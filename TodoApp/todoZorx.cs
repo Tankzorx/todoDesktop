@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+// Default app size: 419; 614
 namespace TodoApp
 {
     public partial class form1 : Form
@@ -28,9 +29,14 @@ namespace TodoApp
             item.title = todoTitlePicker.Text;
             item.deadline = todoDatePicker.Value.Date;
             item.priority = todoPriorityPicker.Text;
-            //item.deadline = todoDatePicker.Date;
+            item.description = todoDescriptionPicker.Text;
 
-        }
+            TodoItemList.addItem(item);
+            testBox.Text = item.toString();
+            testBox2.Text = TodoItemList.toString();
+            todoList.DataSource = null;
+            todoList.DataSource = TodoItemList.todoItemList;
+      }
 
         private void todoTitle_TextChanged(object sender, EventArgs e)
         {
@@ -49,8 +55,7 @@ namespace TodoApp
         }
 
         private void todoZorx_Load(object sender, EventArgs e)
-        {
-            testBox.Text = "loaded form.";
+        {            
             // Init the priority box
             todoPriorityPicker.SelectedIndex = 0;
             todoPriorityPicker.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -62,6 +67,15 @@ namespace TodoApp
             // Init the description box
             todoDescriptionPicker.ForeColor = System.Drawing.SystemColors.GrayText;
             todoDescriptionPicker.Text = "Add a description to the todo if you want";
+
+            List<string> _items = new List<string>();
+            _items.Add("One"); // <-- Add these
+            _items.Add("Two");
+            _items.Add("Three");
+
+            todoList.DataSource = _items;
+
+            testBox.Text = "loaded form.";
         }
 
         private void todoTitlePicker_Enter(object sender, EventArgs e)
@@ -140,6 +154,13 @@ namespace TodoApp
             }
             
         }
+
+        private void todoList_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+
 
     }
 }
