@@ -76,6 +76,7 @@ namespace TodoApp
             todoList.DataSource = _items;
 
             testBox.Text = "loaded form.";
+            todoList.DrawItem += new DrawItemEventHandler(todoList_DrawItem);
         }
 
         private void todoTitlePicker_Enter(object sender, EventArgs e)
@@ -158,6 +159,24 @@ namespace TodoApp
         private void todoList_SelectedIndexChanged_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void todoList_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            Font titleFont = new Font(this.Font, FontStyle.Bold);
+            StringFormat alignment = new StringFormat();
+
+            RectangleF titleBounds = new RectangleF(e.Bounds.X,
+                                                  e.Bounds.Y ,
+                                                  e.Bounds.Width ,
+                                                  (int)titleFont.GetHeight() + 2);
+
+
+            e.Graphics.DrawLine(Pens.DarkGray, e.Bounds.X, e.Bounds.Y, e.Bounds.X + e.Bounds.Width, e.Bounds.Y);
+            e.Graphics.DrawLine(Pens.Cyan, e.Bounds.X, e.Bounds.Y, e.Bounds.X + e.Bounds.Width, e.Bounds.Y);
+            e.DrawBackground();
+            e.Graphics.DrawString("hueheuehue",titleFont,Brushes.Black,titleBounds,alignment);
+            testBox3.Text = "Draw item fired!";
         }
 
 

@@ -41,6 +41,7 @@
             this.testBox = new System.Windows.Forms.TextBox();
             this.testBox2 = new System.Windows.Forms.TextBox();
             this.todoItemListBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.testBox3 = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.todoItemListBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -57,11 +58,13 @@
             // 
             // todoList
             // 
+            this.todoList.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.todoList.FormattingEnabled = true;
             this.todoList.Location = new System.Drawing.Point(12, 27);
             this.todoList.Name = "todoList";
             this.todoList.Size = new System.Drawing.Size(379, 329);
             this.todoList.TabIndex = 1;
+            this.todoList.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.todoList_DrawItem);
             this.todoList.SelectedIndexChanged += new System.EventHandler(this.todoList_SelectedIndexChanged_1);
             // 
             // menuStrip1
@@ -152,11 +155,21 @@
             this.testBox2.Size = new System.Drawing.Size(242, 142);
             this.testBox2.TabIndex = 10;
             // 
+            // testBox3
+            // 
+            this.testBox3.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.testBox3.Location = new System.Drawing.Point(397, 323);
+            this.testBox3.Multiline = true;
+            this.testBox3.Name = "testBox3";
+            this.testBox3.Size = new System.Drawing.Size(242, 142);
+            this.testBox3.TabIndex = 11;
+            // 
             // form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(764, 576);
+            this.Controls.Add(this.testBox3);
             this.Controls.Add(this.todoList);
             this.Controls.Add(this.testBox2);
             this.Controls.Add(this.testBox);
@@ -197,6 +210,7 @@
         private System.Windows.Forms.TextBox testBox;
         private System.Windows.Forms.BindingSource todoItemListBindingSource;
         private System.Windows.Forms.TextBox testBox2;
+        private System.Windows.Forms.TextBox testBox3;
         
     }
 }
