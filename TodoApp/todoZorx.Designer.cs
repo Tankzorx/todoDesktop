@@ -65,7 +65,7 @@
             this.todoList.Size = new System.Drawing.Size(379, 329);
             this.todoList.TabIndex = 1;
             this.todoList.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.todoList_DrawItem);
-            this.todoList.SelectedIndexChanged += new System.EventHandler(this.todoList_SelectedIndexChanged_1);
+            this.todoList.SelectedIndexChanged += new System.EventHandler(this.todoList_SelectedIndexChanged);
             // 
             // menuStrip1
             // 
