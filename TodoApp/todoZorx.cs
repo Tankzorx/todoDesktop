@@ -179,9 +179,9 @@ namespace TodoApp
                                                   (int)titleFont.GetHeight() + 2);
 
             RectangleF dateBounds = new RectangleF(e.Bounds.X,
-                                                   (int)titleFont.GetHeight()+2,
+                                                   e.Bounds.Y + (int)titleFont.GetHeight() + 2,
                                                    e.Bounds.Width,
-                                                   e.Bounds.Bottom);
+                                                   (int)titleFont.GetHeight() * 2 + 4);
 
             Rectangle titleBoundsRec = new Rectangle(e.Bounds.X,
                                                   e.Bounds.Y,
@@ -189,20 +189,21 @@ namespace TodoApp
                                                   (int)titleFont.GetHeight() + 2);
 
             Rectangle dateBoundsRec = new Rectangle(e.Bounds.X,
-                                                   (int)titleFont.GetHeight() + 2,
+                                                   e.Bounds.Y + (int)titleFont.GetHeight() + 2,
                                                    e.Bounds.Width,
                                                    (int)titleFont.GetHeight() *2+4);
 
-            testBox3.Text = "Draw item fired!" + e.Bounds.ToString() + titleFont.GetHeight() + dateBoundsRec.ToString() + titleBoundsRec.ToString();
+            testBox3.Text = "Draw item fired!" + e.Bounds.ToString() + titleBoundsRec.ToString() + dateBoundsRec.ToString();
             
             //Point uL = e.Bounds.Location;
             //Point uR = new Point(uL.X,e.Bounds.Right);
             //Point lL = new Point(uL.X, e.Bounds.Y + 50);
             //Point lR = new Point(e.Bounds.Right, e.Bounds.Y + e.Bounds.Height);
-            //e.Graphics.DrawLine(new Pen(Brushes.Black, 6.0F),uL,uR);
+            //e.Graphics.DrawLine(new Pen(Brushes.Black, 6.0F),titleBoundsRec);
             //e.Graphics.DrawLine(new Pen(Brushes.Black, 6.0F), lL, lR);
             e.DrawBackground();
-            //e.Graphics.DrawString("Todo Title",titleFont,Brushes.Black,titleBounds,alignment);
+            e.Graphics.DrawString(title,titleFont,Brushes.Black,titleBounds,alignment);
+            e.Graphics.DrawString(priority, titleFont, Brushes.Black, dateBounds, alignment);
             e.Graphics.DrawRectangle(new Pen(Brushes.Black, 1.0F),titleBoundsRec);
             e.Graphics.DrawRectangle(new Pen(Brushes.Black, 1.0F), dateBoundsRec);
             
