@@ -27,7 +27,7 @@ namespace TodoApp
             string list = "";
             foreach (TodoItem item in todoItemList)
             {
-                list = list + item.toString() + "::::";
+                list = list + item.toString() + "\r\n";
 
             }
             return list;

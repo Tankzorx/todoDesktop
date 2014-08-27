@@ -74,7 +74,7 @@ namespace TodoApp
             //_items.Add("Three");
 
             //todoList.DataSource = _items;
-            todoList.ItemHeight = 100;
+            todoList.ItemHeight = 50;
 
 
             testBox.Text = "loaded form.";
@@ -162,7 +162,11 @@ namespace TodoApp
 
         private void todoList_DrawItem(object sender, DrawItemEventArgs e)
         {
-            Font titleFont = new Font(this.Font, FontStyle.Bold);
+            Font dateFont = new Font(this.Font.FontFamily, 13);
+            Font titleFont = new Font(this.Font.FontFamily, 12);
+            //Font titleFont = new Font(this.Font, FontStyle.Bold);
+            
+            
             
             int index = e.Index;
             string title = TodoItemList.todoItemList[index].title;
@@ -173,27 +177,35 @@ namespace TodoApp
             
             StringFormat alignment = new StringFormat();
 
-            RectangleF titleBounds = new RectangleF(e.Bounds.X,
+            Rectangle titleBounds = new Rectangle(e.Bounds.X,
                                                   e.Bounds.Y,
-                                                  e.Bounds.Width,
+                                                  e.Bounds.Width-150,
                                                   (int)titleFont.GetHeight() + 2);
 
-            RectangleF dateBounds = new RectangleF(e.Bounds.X,
-                                                   e.Bounds.Y + (int)titleFont.GetHeight() + 2,
-                                                   e.Bounds.Width,
-                                                   (int)titleFont.GetHeight() * 2 + 4);
+            Rectangle dateBounds = new Rectangle(e.Bounds.Width-145,
+                                                   e.Bounds.Y,
+                                                   98,
+                                                   (int)dateFont.GetHeight() +2);
 
-            Rectangle titleBoundsRec = new Rectangle(e.Bounds.X,
-                                                  e.Bounds.Y,
-                                                  e.Bounds.Width,
-                                                  (int)titleFont.GetHeight() + 2);
+            Rectangle priorityBounds = new Rectangle(e.Bounds.Width-50,
+                                                     e.Bounds.Y,
+                                                     48,
+                                                     48);
 
-            Rectangle dateBoundsRec = new Rectangle(e.Bounds.X,
-                                                   e.Bounds.Y + (int)titleFont.GetHeight() + 2,
-                                                   e.Bounds.Width,
-                                                   (int)titleFont.GetHeight() *2+4);
+            //RectangleF rec = dateBounds;
+            //RectangleF recf = titleBounds;
 
-            testBox3.Text = "Draw item fired!" + e.Bounds.ToString() + titleBoundsRec.ToString() + dateBoundsRec.ToString();
+            //Rectangle titleBoundsRec = new Rectangle(e.Bounds.X,
+            //                                      e.Bounds.Y,
+            //                                      e.Bounds.Width,
+            //                                      (int)titleFont.GetHeight() + 2);
+
+            //Rectangle dateBoundsRec = new Rectangle(e.Bounds.X,
+            //                                       e.Bounds.Y + (int)titleFont.GetHeight() + 2,
+            //                                       e.Bounds.Width / 2 + 1,
+            //                                       (int)titleFont.GetHeight() *2+4);
+
+            testBox3.Text = "Draw item fired!" + e.Bounds.ToString() + titleBounds.ToString() + dateBounds.ToString();
             
             //Point uL = e.Bounds.Location;
             //Point uR = new Point(uL.X,e.Bounds.Right);
@@ -201,11 +213,15 @@ namespace TodoApp
             //Point lR = new Point(e.Bounds.Right, e.Bounds.Y + e.Bounds.Height);
             //e.Graphics.DrawLine(new Pen(Brushes.Black, 6.0F),titleBoundsRec);
             //e.Graphics.DrawLine(new Pen(Brushes.Black, 6.0F), lL, lR);
+             
             e.DrawBackground();
+            todoList.BackColor = Color.Azure;
             e.Graphics.DrawString(title,titleFont,Brushes.Black,titleBounds,alignment);
-            e.Graphics.DrawString(priority, titleFont, Brushes.Black, dateBounds, alignment);
-            e.Graphics.DrawRectangle(new Pen(Brushes.Black, 1.0F),titleBoundsRec);
-            e.Graphics.DrawRectangle(new Pen(Brushes.Black, 1.0F), dateBoundsRec);
+            e.Graphics.DrawString(deadline.ToShortDateString(), dateFont, Brushes.Black, dateBounds, alignment);
+            e.Graphics.DrawRectangle(new Pen(Brushes.Black, 1.0F), titleBounds);
+            e.Graphics.DrawRectangle(new Pen(Brushes.Black, 1.0F), dateBounds);
+            //e.Graphics.DrawRectangle(new Pen(Brushes.Black, 1.0F), priorityBounds);
+            e.Graphics.FillRectangle(Brushes.LightCoral, priorityBounds);
             
             //e.Graphics.DrawString("Date",titleFont,Brushes.Black,dateBounds,alignment);
 
